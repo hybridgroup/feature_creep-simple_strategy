@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors = ["Christian Trosclair"]
   s.email       = ["xn@hybridgroup.com"]
   s.description = "simple strategy implementation for feature_creep"
-  s.summary = "simple strategy implementation for "
+  s.summary = "simple strategy implementation for feature_creep"
   s.homepage = "https://github.com/hybridgroup/feature_creep-simple_strategy"
 
   s.require_paths = ["lib"]
