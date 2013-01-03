@@ -7,7 +7,7 @@ class FeatureCreep
           {
             :percentage => (creep.active_percentage(feature) || 0).to_i,
             :scopes     => creep.active_scopes(feature).map { |g| g.to_sym },
-            :agent_ids  => creep.active_agent_ids(feature),
+            :individuals  => creep.active_individuals(feature),
             :global     => creep.active_global_features,
             :available_features => creep.features
           }
@@ -21,12 +21,12 @@ class FeatureCreep
     end
 
     def self.warden
-      lambda { |creep,feature,agent_id|
-        if agent_id
+      lambda { |creep,feature,individual|
+        if individual
           creep.active_globally?(feature) ||
-            creep.agent_id_in_active_scope?(feature, agent_id) ||
-            creep.agent_id_active?(feature, agent_id) ||
-            creep.agent_id_within_active_percentage?(feature, agent_id)
+            creep.individual_in_active_scope?(feature, individual) ||
+            creep.individual_active?(feature, individual) ||
+            creep.individual_within_active_percentage?(feature, individual)
         else
           creep.active_globally?(feature)
         end
